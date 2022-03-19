@@ -1,0 +1,15 @@
+Rafaela Maria Souza Carneiro - 2011483
+Maria Beatriz de Lima e Silva Sobreira - 2010953
+
+A princípio, todas as funções compilaram e rodaram corretamente. Para comparar byte a byte do que nossas funções retornavam e o arquivo, usamos uma função auxiliar exibe_arq:
+
+void exibe_arq(FILE*arq, FILE*gabarito){
+	char c, d;
+	int i = 0;
+	while (i<160) { /* printando so os 160 primeiros bytes */
+		fread(&c, 1, 1, arq);		/*le do arquivo que a gente escreveu */
+		fread(&d, 1, 1, gabarito);	/* le do arquivo gabarito */
+		printf("arq: %X \tgabarito: %X\n", c, d); /* print dos dois */
+		i++;
+	}
+}
