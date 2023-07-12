@@ -1,0 +1,17 @@
+  .data
+  s1: .string "ls -ls"
+
+  .text
+  .globl main
+  main:
+  /* prologo */
+    pushq %rbp		 
+    movq  %rsp, %rbp
+
+  /* coloque seu codigo aqui */
+    movq $s1, %rdi	/* passando a string s1 como 1o argumento */
+    call system
+
+  /* finalizacao */
+    leave
+    ret
